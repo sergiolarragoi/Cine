@@ -1,6 +1,6 @@
 //funciones generales
 function esconder() {
-   $('#zonaPelicula').hide();
+    $('#zonaPelicula').hide();
     $('#zonaActor').hide();
     $('#zonaDirector').hide();
     $('#zonaConsulta').hide();
@@ -9,16 +9,44 @@ function esconder() {
     $('#directorNombresTodos').hide();
 }
 //funciones de gestion de ikasleak     
+function ListarPeliculas() {
+    $('#zonaConsulta').html(' ');
+    $.ajax({
+        type: 'POST',
+        dstaType: 'json',
+        url: "../controlador/controlador_consulta_peliculas.php",
+        success: function (datos) {
+            alert(datos);
+            var tabla = "<table>";
+            tabla += "<th class='titulo'>TÍTULO</th>\n\
+               <th class='anio'>AÑO</th><th class='cartel'>CARTEL</th>";
+            midato = JSON.parse(datos);
+            $.each(midato, function (i,linea) {
+                tabla += "<tr>";
+                tabla += "<td class='titulo'>" + linea.Titulo + "</td>";
+                tabla += "<td class='anio'>" + linea.Anyo + "</td>";
+                tabla += "<td class='numerico'>" + "<img class='cartel' src= " + linea.Cartel + "></img></td>";
+                tabla += "</tr>";
+            });
+            tabla += "</table>";
+            alert(tabla);
+            $('#zonaConsulta').append(tabla).hide().fadeIn('slow');
+        },
+        error: function (xhr) {
+            alert("An error occured: " + xhr.status + " " + xhr.statusText);
+        }
+    });
+}
 
 function funcionNuevaPelicula() {
-    
-   // MiId = $('#peliculaId').val();
+
+    CargarComboDirectores();
     MiTitulo = $('#peliculaTitulo').val();
     MiEdad = $('#edadPelicula').val();
     MiDirector = $('#director').val();
     MiCartel = $('#cartel').val();
-    alert(MiTitulo+MiEdad+MiDirector+MiCartel);
-   // alert($("#ListaEscogidos").html());
+    alert(MiTitulo + MiEdad + MiDirector + MiCartel);
+    // alert($("#ListaEscogidos").html());
     $.ajax({
         type: 'POST',
         data: "submit=&Titulo=" + MiTitulo + "&Edad=" + MiEdad + "&Director=" + MiDirector + "&Cartel=" + MiCartel,
@@ -35,6 +63,29 @@ function funcionNuevaPelicula() {
     esconder();
 
 
+}
+
+function CargarComboDirectores(){
+    $('#peliculasNombresTodos').html("");
+    $.ajax({
+        type: 'POST',
+        dstaType: 'json',
+        url: "../controlador/controlador_consulta_directores.php",
+        success: function (datos) {
+            alert(datos);
+            midato = JSON.parse(datos);
+            micombo = "";
+            $.each(midato, function (i, dato) {
+                micombo += "<option value='" + dato.IdPelicula + "' data-titulo='" + dato.Titulo + "'>" + dato.Titulo + "</option>";
+            });
+            alert(micombo);
+            $('#peliculaNombresTodos').append(micombo);
+            return false;
+        },
+        error: function (xhr) {
+            alert("An error occured: " + xhr.status + " " + xhr.statusText);
+        }
+    });
 }
 
 function funcionIkasleAldatu() {
@@ -96,7 +147,7 @@ function CargarComboPeliculas() {
             midato = JSON.parse(datos);
             micombo = "";
             $.each(midato, function (i, dato) {
-                micombo += "<option value='" + dato.IdPelicula + "' data-titulo='" + dato.Titulo + "'>" + dato.IdPelicula +".- "+ dato.Titulo +"</option>";
+                micombo += "<option value='" + dato.IdPelicula + "' data-titulo='" + dato.Titulo + "'>" + dato.Titulo + "</option>";
             });
             alert(micombo);
             $('#peliculaNombresTodos').append(micombo);

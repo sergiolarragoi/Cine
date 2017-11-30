@@ -21,40 +21,27 @@
                         <a href="#" id="nuevaPelicula">Añadir</a>
                         <a href="#" id="modificarPelicula">Modificar</a>
                         <a href="#" id="borrarPelicula">Borrar</a>
-                        <a href id="buscarPelicula">Buscar</a>
                         <a href="#" class="active">ACTORES</a>
                         <a href="#" id="listaActor">Listado</a>
                         <a href="#" id="nuevoActor">Añadir  </a>
                         <a href="#" id="modificarActor">Modificar</a>
                         <a href="#" id="borrarActor">Borrar</a>
-                        <a href id="buscarActor">Buscar</a>
                         <a href="#" class="active">DIRECTORES</a>
                         <a href="#" id="listaDirector">Listado</a>
                         <a href="#" id="nuevoDirector">Añadir</a>
-                        <a href="#" id="borrarDirector">Borrar</a>
                         <a href="#" id="modificarDirector">Modificar</a>
-
-
+                        <a href="#" id="borrarDirector">Borrar</a>
+                        <a href="#" class="active">CONSULTAS</a>
 
                     </aside>
                     <div class="dcha">
                         <div id="zonaPelicula">
-                            <label>ID</label><input type="text" id="peliculaId" disabled/><br/>
+<!--                            <label>ID</label><input type="text" id="peliculaId" disabled/><br/>-->
                             <label>TITULO</label><input type="text" id="peliculaTitulo" class="valores"/>
-                            <select id="peliculaNombresTodos"></select><br>
-                            <label >AÑO</label><input type="text" id="edadPelicula" class="valores"/>  <br/>
-                            <label >DIRECTOR</label><input type="text" id="director" class="valores"/>  <br/>
-                            <label >CARTEL</label><input type="text" id="cartel" class="valores"/>  <br/>
-<!--                            <table id="tabla">
-                                <tr>
-                                    <th>MODULOS DISPONIBLES</th>
-                                    <th>MODULOS EN LOS QUE SE MATRICULA</th>  
-                                </tr>
-                                <tr>
-                                    <td id="ListaDisponibles"></td>
-                                    <td id="ListaEscogidos"></td>
-                                </tr>
-                            </table>-->
+                            <select id="peliculaNombresTodos"></select><br/>
+                            <label >AÑO</label><input type="text" id="edadPelicula" class="valores"/><br/>
+                            <label >DIRECTOR</label><input type="text" id="director" class="valores"/><br/>
+                            <label >CARTEL</label><input type="file" id="cartel" class="valores"/><br/>
                             <input type="button" value="aceptar" id="peliculaGuardar"/>
                             <input type="button" value="cancelar" id="peliculaCancelar"/>
                             <br>
@@ -63,10 +50,10 @@
                         <div id="zonaActor">
                             <label>ID</label><input type="text" id="moduloId" class="valoresm" disabled/><br/>
                             <label>NOMBRE ACTOR</label><input type="text" id="moduloNombre" class="valoresm"/>
-                            <select id="actorNombresTodos"></select><br>
+                            <select id="actorNombresTodos"></select><br/>
                             <input type="button" value="aceptar" id="moduloGuardar"/>
                             <input type="button" value="cancelar" id="moduloCancelar"/>
-                            <br>
+                            <br/>
                         </div>
                         <div id="zonaDirector">
                             <label>ID</label><input type="text" id="moduloId" class="valoresm" disabled/><br/>
@@ -74,7 +61,7 @@
                             <select id="directorNombresTodos"></select><br>
                             <input type="button" value="aceptar" id="moduloGuardar"/>
                             <input type="button" value="cancelar" id="moduloCancelar"/>
-                            <br>
+                            <br/>
                         </div>
                         <div id="zonaConsulta">
 

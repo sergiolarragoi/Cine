@@ -6,9 +6,15 @@ $(document).ready(function () {
     $('#zonaDirector').hide();
     esconder();
     // GESTION DE PELICULAS
+    $('#listaPelicula').click(function(){
+        esconder();
+        $('#zonaConsulta').show();
+        ListarPeliculas();
+    });
     $('#nuevaPelicula').click(function () {
         esconder();
         $('#zonaPelicula').show();
+        $('#peliculaTitulo').show();
         opcion = "guardarNuevaPelicula";
         $('.valores').attr("disabled", false);
 //        $("#ListaDisponibles").html("");
@@ -44,13 +50,11 @@ $(document).ready(function () {
     });
     $('#borrarPelicula').click(function () {
         esconder();
-        //$('.valores').val("");
-        //$('#zonaPelicula').show();
-        //$('.valores').hide();
+        $('.valores').val("");
+        $('#zonaPelicula').show();
+        $('#peliculaTitulo').hide();
         $('#peliculaNombresTodos').show();
-        $('#peliculaGuardar').show();
-        $('#peliculaCancelar').show();
-      //  $('.valores').attr("disabled", true);
+        $('.valores').attr("disabled", true);
         CargarComboPeliculas();
         opcion = "guardarPeliculaBorrar";
         return false;
