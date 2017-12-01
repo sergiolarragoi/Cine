@@ -4,7 +4,7 @@
         <link href="../css/estilo.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <script src="../JS/jquery-3.2.1.js" type="text/javascript"></script>
-        <script src="../JS/Funciones.js" type="text/javascript"></script>
+        <script src="../JS/FuncionesDeEventos.js" type="text/javascript"></script>
         <script src="../JS/FuncionesDeGestion.js" type="text/javascript"></script>
 
     </head>
@@ -37,11 +37,11 @@
                     <div class="dcha">
                         <div id="zonaPelicula">
 <!--                            <label>ID</label><input type="text" id="peliculaId" disabled/><br/>-->
-                            <label>TITULO</label><input type="text" id="peliculaTitulo" class="valores"/>
-                            <select id="peliculaNombresTodos"></select><br/>
-                            <label >AÑO</label><input type="text" id="edadPelicula" class="valores"/><br/>
-                            <label >DIRECTOR</label><input type="text" id="director" class="valores"/><br/>
-                            <label >CARTEL</label><input type="file" id="cartel" class="valores"/><br/>
+                            <label>TITULO</label><input type="text" id="peliculaTitulo" class="valores"/><br/><br/>
+                            <label >AÑO</label><input type="text" id="edadPelicula" class="valores"/><br/><br/>
+                            <label >DIRECTOR</label><input type="text" id="director" class="valores"/>
+                            <select id="peliculaNombresTodos"></select><br/><br/>
+                            <label >CARTEL</label><input type="file" id="cartel" class="valores"/><br/><br/>
                             <input type="button" value="aceptar" id="peliculaGuardar"/>
                             <input type="button" value="cancelar" id="peliculaCancelar"/>
                             <br>

@@ -1,6 +1,6 @@
 <?php
 
-require_once("../modelo/modelo_Pelicula.php");
+require_once("../modelo/modelo_director.php");
 $cont = new modelo_director();
 $datos = $cont->get_director();
 
