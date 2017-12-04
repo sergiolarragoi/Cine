@@ -21,16 +21,16 @@ $(document).ready(function () {
         $('#peliculaNombresTodos').show();
         $('.valores').attr("disabled", false);
         CargarComboDirectores();
-        opcion = "guardarNuevaPelicula";
+        opcion = "guardarPeliculaNueva";
         return false;
     });
     $('#modificarPelicula').click(function () {
         esconder();
-        $('#zonaIkasle').show();
-        $('#ikasleNombresTodos').show();
+        $('#zonaPelicula').show();
+        $('#peliculaNombresTodos').show();
         $('.valores').attr("disabled", false);
-        CargarComboIkasleak();
-        opcion = "ikasleGuardarAldatu";
+        CargarComboDirectores();
+        opcion = "guardarPeliculaModificar";
         return false;
     });
     $('#borrarPelicula').click(function () {
@@ -44,23 +44,13 @@ $(document).ready(function () {
         opcion = "guardarPeliculaBorrar";
         return false;
     });
-    $('#buscarPelicula').click(function () {
-        esconder();
-        $('#zonaIkasle').show();
-        CargarComboIkasleak();
-        opcion = "ikasleGuardarBilatu";
-        $('#ikasleNombresTodos').show();
-        $('.valores').attr("disabled", true);
-        alert('ikasle bilatu');
-        return false;
-    });
     $('#peliculaGuardar').click(function () {
         switch (opcion) {
-            case "guardarNuevaPelicula":
+            case "guardarPeliculaNueva":
                 funcionNuevaPelicula();
                 break;
-            case "ikasleGuardarAldatu":
-                funcionIkasleAldatu();
+            case "guardarPeliculaModificar":
+                funcionModificarPelicula();
                 break;
             case "guardarPeliculaBorrar":
                 funcionBorrarPelicula();

@@ -16,7 +16,7 @@ function ListarPeliculas() {
         dstaType: 'json',
         url: "../controlador/controlador_consulta_peliculas.php",
         success: function (datos) {
-            var tabla = "<table>";
+            var tabla = "<table align= 'center'>";
             tabla += "<th class='titulo'>TÍTULO</th>\n\
                <th class='anio'>AÑO</th><th class='cartel'>CARTEL</th>";
             midato = JSON.parse(datos);
@@ -24,7 +24,7 @@ function ListarPeliculas() {
                 tabla += "<tr>";
                 tabla += "<td class='titulo'>" + linea.Titulo + "</td>";
                 tabla += "<td class='anio'>" + linea.Anyo + "</td>";
-                tabla += "<td class='numerico'><img class='cartel' src= '" + linea.Cartel + "'/></td>";
+                tabla += "<td class='numerico'><img class='cartel' src= '" + linea.Cartel + "' width='300px' height='400px'/></td>";
                 tabla += "</tr>";
             });
             tabla += "</table>";
@@ -82,16 +82,17 @@ function CargarComboDirectores(){
     });
 }
 
-function funcionIkasleAldatu() {
-    MiId = $('#ikasleId').val();
-    MiNombre = $('#ikasleNombre').val();
-    MiEdad = $('#ikasleEdad').val();
-    MiCurso = $('#ikasleCurso').val();
+function funcionModificarPelicula() {
+    
+    MiTitulo = $('#peliculaTitulo').val();
+    MiEdad = $('#edadPelicula').val();
+    MiDirector = $('#peliculaNombresTodos').val();
+    MiCartel = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '../img/');
     $.ajax({
         type: 'POST',
-        data: "submit=&id=" + MiId + "&Nombre=" + MiNombre + "&Edad=" + MiEdad + "&Curso=" + MiCurso,
+        data: "submit=&Titulo=" + MiTitulo + "&Edad=" + MiEdad + "&Director=" + MiDirector + "&Cartel=" + MiCartel,
         dstaType: 'json',
-        url: "../controlador/controlador_insertar_ikasle.php",
+        url: "../controlador/controlador_insertar_pelicula.php",
         success: function (datos) {
             alert("Se ha insertado con exito");
             alert(datos);
