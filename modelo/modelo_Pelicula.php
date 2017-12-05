@@ -31,9 +31,9 @@ class modelo_pelicula {
         $consulta = $this->link->query("CALL sp_borrarPelicula('$pelicula_id')");
     }
 
-//    public function modificar_moduloak($id,$nombre,$curso){
-//        $consulta = $this->link->query("CALL sp_modificar_moduloak('$id','$nombre','$curso')");
-//    }
+    public function modificar_pelicula($titulo,$edad,$director){
+        $consulta = $this->link->query("CALL sp_modificarPeliculas('$titulo','$edad','$director')");
+    }
 //public function modificar_ikasle($id,$nombre,$edad,$curso){
 //     $consulta=$this->link->query("CALL sp_modificar_ikasle('$id'. '$nombre', '$edad', '$curso')");
 //} 

@@ -17,7 +17,9 @@ $(document).ready(function () {
     $('#nuevaPelicula').click(function () {
         esconder();
         $('#zonaPelicula').show();
+        $('#peliculaTitulo').show();
         $('#director').hide();
+        $('#cartel').show();
         $('#peliculaNombresTodos').show();
         $('.valores').attr("disabled", false);
         CargarComboDirectores();
@@ -27,9 +29,12 @@ $(document).ready(function () {
     $('#modificarPelicula').click(function () {
         esconder();
         $('#zonaPelicula').show();
+        $('#peliculaTitulo').show();
+        $('#director').hide();
+        $('#cartel').hide();
         $('#peliculaNombresTodos').show();
         $('.valores').attr("disabled", false);
-        CargarComboDirectores();
+        ComboDirectoresPeliculas();
         opcion = "guardarPeliculaModificar";
         return false;
     });
@@ -85,17 +90,13 @@ $(document).ready(function () {
 //       
 //    });
 //
-//    $('#ikasleNombresTodos').change(function () {
-//
-//        MiId = $('#ikasleNombresTodos').val();
-//        MiNombre = $('#ikasleNombresTodos option:selected').html();
-//        MiEdad = $('#ikasleNombresTodos option:selected').attr('data-edad');
-//        MiCurso = $('#ikasleNombresTodos option:selected').attr('data-curso');
-//        $('#ikasleId').val(MiId);
-//        $('#ikasleNombre').val(MiNombre);
-//        $('#ikasleEdad').val(MiEdad);
-//        $('#ikasleCurso').val(MiCurso);
-//    });
+    $('#peliculaNombresTodos').change(function () {
+
+        MiTitulo = $('#peliculaNombresTodos option:selected').attr('data-titulo');
+        MiAnio = $('#peliculaNombresTodos option:selected').attr('data-anio');
+        $('#peliculaTitulo').val(MiTitulo);
+        $('#edadPelicula').val(MiAnio);
+    });
     
     //MODULUEN GESTIOA
 //    $('#moduloBerria').click(function () {
