@@ -55,8 +55,6 @@ function funcionNuevaPelicula() {
         }
     });
     esconder();
-
-
 }
 
 function CargarComboDirectores() {
@@ -75,6 +73,36 @@ function CargarComboDirectores() {
                 micombo += "<option value='" + dato.IdDirector + "' data-nombre='" + dato.NombreDirector + "'>" + dato.NombreDirector + "</option>";
             });
             $('#peliculaNombresTodos').append(micombo);
+            return false;
+        },
+        error: function (xhr) {
+            alert("An error occured: " + xhr.status + " " + xhr.statusText);
+        }
+    });
+}
+function CargarTablaActores() {
+    $.ajax({
+        type: 'POST',
+        dstaType: 'json',
+        url: "../controlador/controlador_consulta_actores.php",
+        success: function (datos) {
+            alert(datos);
+            var tabla = "<table>";
+            tabla += "<tr>";
+            tabla += "<th class='actores'>Actores</th>";
+            tabla += "<th class='actua'>Actua</th>";
+            tabla += "</tr>";
+            var datosRecibidos = JSON.parse(datos);
+            alert(datosRecibidos);
+            $.each(datosRecibidos, function (i, dato) {
+                tabla += "<tr>";
+                tabla += "<td>" + dato.NombreActor + "</td>";
+                tabla += "<td><input type='checkbox'/></td>";
+                tabla += "</tr>";
+            });
+            tabla += "</table>";
+            alert(tabla);
+            $('#zonaConsulta').append(tabla).hide().fadeIn('slow');
             return false;
         },
         error: function (xhr) {

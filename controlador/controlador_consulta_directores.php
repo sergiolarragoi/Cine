@@ -1,6 +1,6 @@
 <?php
 
-require_once("../modelo/modelo_director.php");
+require_once("../modelo/modelo_Director.php");
 $cont = new modelo_director();
 $datos = $cont->get_director();
 

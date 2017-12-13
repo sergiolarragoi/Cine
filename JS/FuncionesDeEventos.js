@@ -16,6 +16,7 @@ $(document).ready(function () {
     });
     $('#nuevaPelicula').click(function () {
         esconder();
+        $('#zonaConsulta').show();
         $('#zonaPelicula').show();
         $('#peliculaTitulo').show();
         $('#director').hide();
@@ -23,6 +24,7 @@ $(document).ready(function () {
         $('#peliculaNombresTodos').show();
         $('.valores').attr("disabled", false);
         CargarComboDirectores();
+        CargarTablaActores();
         opcion = "guardarPeliculaNueva";
         return false;
     });
